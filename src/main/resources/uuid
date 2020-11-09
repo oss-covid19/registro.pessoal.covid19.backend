@@ -1,0 +1,13 @@
+#
+# O App grava nessa aquivo um ID que identifica o dispositivo no Serviço.
+# A gravação apenas ocorre se o Usuario enviou sua resposa e o Serviço registrou.
+#
+# Se o Usuário enviar uma resposta já registrada ele avisa: 'Já registramos isso'
+# Se houver inconsistências o Usuário será alertado. (O estado de saúde do cidadão tem um Fluxo de Estado bem definido).
+#
+
+#--- examplo de user id
+ee3512d3-3336-4e59-a9af-172126d027b7
+
+#--- hash do user id
+ee3512d3-3336-4e59-a9af-172126d027b7ee3512d3-3336-4e59-a9af-172126d027b7

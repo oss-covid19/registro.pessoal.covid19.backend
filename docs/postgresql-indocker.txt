@@ -1,0 +1,107 @@
+-------------------------------------------------------------------------------------------------------------------------------------
+P O S T G R E S Q L - uninstall completely:
+-------------------------------------------------------------------------------------------------------------------------------------
+$ sudo apt-get --purge remove postgresql postgresql-doc postgresql-common postgresql-client-common
+
+$ sudo dpkg -l  | grep postgres
+dpkg -l | grep postgres
+
+postgresql                            	8.3.17-0ubuntu0.8.04.1           object-relational SQL database (latest versi
+postgresql-8.3                        	8.3.9-0ubuntu8.04                object-relational SQL database, version 8.3
+postgresql-client                     	8.3.9-0ubuntu8.04                front-end programs for PostgreSQL (latest ve
+postgresql-client-8.3                   8.3.9-0ubuntu8.04                front-end programs for PostgreSQL 8.3
+postgresql-client-common                87ubuntu2                        manager for multiple PostgreSQL client versi
+postgresql-common                       87ubuntu2                        PostgreSQL database-cluster manager
+postgresql-contrib                      8.3.9-0ubuntu8.04                additional facilities for PostgreSQL (latest
+postgresql-contrib-8.3                  8.3.9-0ubuntu8.04                additional facilities for PostgreSQL
+
+-------------------------------------------------------------------------------------------------------------------------------------
+D O C K E R  - P O S T G R E S Q L
+-------------------------------------------------------------------------------------------------------------------------------------
+#--- install postgres image
+$ sudo docker pull postgres
+
+#--- create a docker container called covid19DB da imagem 'postgres'
+$ docker run -d -p 5416:5432 --name covid19DB postgres
+
+#--- check se container is running
+$ docker ps
+
+#--- stop container
+$ docker stop <containerID>
+
+#--- start again container
+$ docker start <containerID>
+
+
+#--- R U N N I N G   WITH DOCKER VOLUMES --------------------------------------------------------------------------------------------
+#--- DOCKER VOLUME: covid19DBVolume [/var/lib/docker/volumes/docker/covid19DBVolume/_data]
+$ docker volume create covid19DBVolume
+
+#--- take a look volume spec
+$ docker volume inspect covid19DBVolume
+[
+    {
+        "CreatedAt": "2019-05-30T21:48:02-03:00",
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/covid19DBVolume/_data",
+        "Name": "covid19DBVolume",
+        "Options": {},
+        "Scope": "local"
+    }
+]
+
+#--- run using that volume [covid19DBVolume]
+
+$ docker run -d -p 5416:5432 --name covid19DBContainer --mount source=covid19DBVolume,target=/var/lib/postgresql/data postgres
+
+#--- start after created
+$ docker start covid19DBContainer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+# N O T E:
+imageName: postgres
+containerName: covid19DBContainer
+volumeName: covid19DBVolume
+-------------------------------------------------------------------------------------------------------------------------------------
+
+#--- R U N     INSIDE DOCKER --------------------------------------------------------------------------------------------------------
+$ docker exec -it covid19DBContainer bash  (docker  exec -it  covid19DBContainer bash)
+
+root@<containerID>:/#
+root@<containerID> :/# psql -h $HOSTNAME -p 5432 -U postgres -W postgres
+password:
+
+psql (9.5.0)
+Type "help" for help.
+-------------------------------------------------------------------------------------------------------------------------------------
+postgres=# \l    #--- lista todos os databases
+                                 List of databases
+   Name    |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges
+-----------+----------+----------+------------+------------+-----------------------
+ postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+(3 rows)
+-------------------------------------------------------------------------------------------------------------------------------------
+postgres=# \h ou \help
+-------------------------------------------------------------------------------------------------------------------------------------
+
+#--- HOW DO I query the DB SERVER version?
+
+"select version();"
+
+PostgreSQL 11.3 (Debian 11.3-1.pgdg90+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 6.3.0-18+deb9u1) 6.3.0 20170516, 64-bit
+
+-------------------------------------------------------------------------------------------------------------------------------------
+covid19DB: SQL commands
+-------------------------------------------------------------------------------------------------------------------------------------
+#--- creating user: covid19
+CREATE USER covid19 WITH PASSWORD 'covid19' LOGIN SUPERUSER INHERIT CREATEDB CREATEROLE REPLICATION;
+
+COMMENT ON ROLE covid19 IS 'user group covid19';
+
+CREATE DATABASE "covid19DB" WITH  OWNER = 'covid19';

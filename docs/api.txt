@@ -1,0 +1,22 @@
+
+API:
+
+-Entrar:
+   post: http://<server:port>/covid19/autorizacao
+   json:
+   {
+       email: milton.vincenttis@gmail.com
+       password: senha
+   }
+   response:
+       se existe: 200 ok
+           json: Autorizacao + RegistroPessoalCovid19
+
+       se não existe email: 404 not found
+       se existe email, senha errada: 404 not found
+
+-EsqueceuASenha:
+
+-Inscricao:
+
+-TrocarSenha:

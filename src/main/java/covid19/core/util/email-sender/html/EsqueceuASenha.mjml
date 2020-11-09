@@ -1,0 +1,41 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-all padding="0px"></mj-all>
+      <mj-text font-family="Ubuntu, Helvetica, Arial, sans-serif" padding="0 25px" font-size="13px"></mj-text>
+      <mj-section background-color="#ffffff"></mj-section>
+      <mj-class name="preheader" color="#000000" font-size="11px"></mj-class>
+    </mj-attributes>
+    <mj-style inline="inline">a { text-decoration: none!important; color: inherit!important; }</mj-style>
+  </mj-head>
+  <mj-body background-color="#c4dff6">
+    <mj-section>
+      <mj-column width="100%">
+        <mj-image height="136px" width="136px" src="https://avatars2.githubusercontent.com/u/68238024?s=400&u=b9f98377b9bfd22f982dbd03a511037dd89dc742&v=4" alt="header image" padding="0px"></mj-image>
+        <mj-text align="center" padding="10px 25px" font-size="20px" color="#404040"><strong>Registro Pessoal: Covid-19</strong></mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section padding-bottom="20px" padding-top="10px">
+      <mj-column>
+        <mj-text align="left" padding="10px 25px" font-size="18px" color="#404040"></br></br></br><strong>Olá!</strong></br></br></br></br></mj-text>
+        <mj-text align="justify" font-size="14px" font-family="Arial" color="#404040">Alguem solicitou recadastramento de sua senha para o App <strong>Registro Pessoal:Covid-19</strong>.<p>Clique no botão abaixo para alterar sua senha. Após clicar no botão, você poderá alterar sua senha no App.</p></br></br></mj-text>
+
+        <mj-button background-color="#c4dff6" color="#404040" href="{0}" font-family="Arial, sans-serif" padding="20px 0 0 0" font-weight="bold" font-size="16px">Recadastrar Senha</mj-button>
+
+        <mj-text align="left" color="#404040" font-size="14px" font-family="Arial" padding-top="40px"></br></br>Se você não solicitou você pode ignorar este email ou nos informar. Sua senha não mudará até você criar uma nova.<br/>
+          <p></p>
+        </mj-text>
+
+        <mj-text>
+            <p></p>
+            <p>__</p>
+        </mj-text>
+
+        <mj-text>
+            <p>Registro Pessoal: Covid-19<br>Open Source Software: http://github/oss-covid19</p>
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

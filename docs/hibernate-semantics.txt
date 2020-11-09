@@ -1,0 +1,3 @@
+Bag semantics -> List / Collection + @OneToMany -> One Element Added: 1 delete, N inserts , One Element Removed: 1 delete, N inserts
+List semantics -> List + @OneToMany + @IndexColumn / @OrderColumn -> One Element Added: 1 insert, M updates, One Element Removed: 1 delete, M updates
+Set semantics -> Set + @OneToMany -> One Element Added: 1 insert , One Element Removed: 1 delete
