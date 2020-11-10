@@ -27,7 +27,7 @@ public class HTMLMailSenderTester {
         props.setProperty(HTMLEmailSender.EMAIL_FROM, "oss.covid19.repo@gmail.com");
         props.setProperty(HTMLEmailSender.EMAIL_TO, "milton.vincenttis@gmail.com");
         props.setProperty(HTMLEmailSender.EMAIL_SUBJECT, "This is a Test -- AVB");
-        props.setProperty(HTMLEmailSender.EMAIL_TEXT, "<h1>Registro Pessoal:Covid-19</h1>");
+        props.setProperty(HTMLEmailSender.EMAIL_TEXT, "");
         
         HTMLEmailSender sender = new HTMLEmailSender(props);
         sender.send();
