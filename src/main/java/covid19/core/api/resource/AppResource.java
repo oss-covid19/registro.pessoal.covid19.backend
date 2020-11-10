@@ -57,7 +57,7 @@ public class AppResource {
             //--- 200: json: Autorizacao + Registro
             /*
             {
-              "email": "milton.vincenttis@gmail.com",
+              "email": "architect.tonena@gmail.com",
               "id": "7604764b-c1a2-47f7-ac4e-c572a6f91928",
               "password": "senha",
               "recadastrar": false,
