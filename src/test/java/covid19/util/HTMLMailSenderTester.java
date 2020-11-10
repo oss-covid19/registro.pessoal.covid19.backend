@@ -25,7 +25,7 @@ public class HTMLMailSenderTester {
         props.setProperty(HTMLEmailSender.USERNAME,"oss.covid19.repo@gmail.com");
         props.setProperty(HTMLEmailSender.PASSWORD, "bourne@1961");
         props.setProperty(HTMLEmailSender.EMAIL_FROM, "oss.covid19.repo@gmail.com");
-        props.setProperty(HTMLEmailSender.EMAIL_TO, "milton.vincenttis@gmail.com");
+        props.setProperty(HTMLEmailSender.EMAIL_TO, "architect.tonena@gmail.com");
         props.setProperty(HTMLEmailSender.EMAIL_SUBJECT, "This is a Test -- AVB");
         props.setProperty(HTMLEmailSender.EMAIL_TEXT, "");
         
