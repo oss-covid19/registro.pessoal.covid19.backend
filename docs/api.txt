@@ -5,7 +5,7 @@ API:
    post: http://<server:port>/covid19/autorizacao
    json:
    {
-       email: milton.vincenttis@gmail.com
+       email: architect.tonena@gmail.com
        password: senha
    }
    response:
